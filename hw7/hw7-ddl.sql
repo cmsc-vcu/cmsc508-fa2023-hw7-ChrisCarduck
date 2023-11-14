@@ -87,7 +87,7 @@ CREATE TABLE people (
 
 
 # Section 5
-# Populate people with six people.
+# Populate people with ten people.
 # Their last names must exactly be “Person 1”, “Person 2”, etc.
 # Other fields are for you to assign.
 

@@ -144,8 +144,6 @@ erDiagram
 
 ## Examples of data in the database
 
-For the people, skills, and roles tables, provide a description of each table and it's contents. Then provide a listing of the entire table.
-
 ### People table
 
 The *people* table contains elements that describe details about each employee, such as their ID, first and last name, email address, LinkedIn URL, headshot URL, Discord handle, brief bio, and the date they joined the company.
@@ -448,7 +446,7 @@ SELECT
 FROM
     people p
     INNER JOIN peopleroles pr ON (p.people_id = pr.people_id)
-    INNER JOIN roles r ON (pr.roles_id = r.id)
+    INNER JOIN roles r ON (pr.role_id = r.id)
     INNER JOIN peopleskills ps ON (p.people_id = ps.people_id)
     INNER JOIN skills s ON (ps.skills_id = s.id)
 WHERE
@@ -477,13 +475,11 @@ df
 ```{python}
 sql = f"""
 SELECT
-    id,
+    r.id,
     name
 FROM
     roles r
-    LEFT JOIN peopleroles pr ON (r.id = pr.roles.id)
-WHERE
-    pr.roles_id IS NULL
+    LEFT JOIN peopleroles pr ON (r.id = pr.role_id)
 """
 ```
 
